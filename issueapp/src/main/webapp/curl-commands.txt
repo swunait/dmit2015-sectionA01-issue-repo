@@ -2,5 +2,4 @@ curl -X GET -i http://localhost:8080/issueapp/resources/issues/
 
 curl -X GET -i http://localhost:8080/issueapp/resources/issues/1
 
-curl -X -H 'Content-Type: application/json' -i http://localhost:8080/issueapp/resources/issues/ -d '{"issueLabel":"Unique Issue","issueDate":"2019-04-01"}'
 
