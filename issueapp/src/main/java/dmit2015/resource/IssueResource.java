@@ -41,7 +41,9 @@ public class IssueResource {
 	}
 	
 	@PUT
-	public void update(Issue existingIssue) {
+	@Path("{id}")
+	public void update(@PathParam("id") long id, Issue existingIssue) {
+		existingIssue.setIssueId(id);
 		issueService.updateIssue(existingIssue);
 	}
 	
