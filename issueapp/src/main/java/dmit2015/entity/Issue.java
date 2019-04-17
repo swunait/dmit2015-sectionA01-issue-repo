@@ -1,6 +1,7 @@
 package dmit2015.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,6 +16,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import lombok.Data;
 
@@ -36,4 +41,9 @@ public class Issue implements Serializable {
 	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date issueDate = Calendar.getInstance().getTime();
+	
+//	@JsonSerialize(using = LocalDateSerializer.class)
+//	@JsonDeserialize(using = LocalDateDeserializer.class)
+//	@Column(nullable = false)
+//	private LocalDate issueDate = LocalDate.now();
 }
