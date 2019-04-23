@@ -36,14 +36,15 @@ public class Issue implements Serializable {
 	@Column(nullable=false, length=99)
 	private String issueLabel;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@NotNull(message="Enter or select the Date of the issue")
-	@Column(nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date issueDate = Calendar.getInstance().getTime();
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//	@NotNull(message="Enter or select the Date of the issue")
+//	@Column(nullable=false)
+//	@Temporal(TemporalType.DATE)
+//	private Date issueDate = Calendar.getInstance().getTime();
 	
-//	@JsonSerialize(using = LocalDateSerializer.class)
-//	@JsonDeserialize(using = LocalDateDeserializer.class)
-//	@Column(nullable = false)
-//	private LocalDate issueDate = LocalDate.now();
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonSerialize(using = LocalDateSerializer.class)
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@Column(nullable = false)
+	private LocalDate issueDate = LocalDate.now();
 }
